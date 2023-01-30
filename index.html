@@ -1,40 +1,216 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-		<title>reveal.js</title>
+    <title>Docker</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <a href="https://revealjs.com">
+            <img
+              src="https://1000logos.net/wp-content/uploads/2021/11/Docker-Logo-2013.png"
+              alt="Docker logo"
+              style="height: 180px; margin: 0 auto 4rem auto; background: transparent"
+              class="demo-logo"
+            />
+          </a>
+          <h3>DOCKER</h3>
+          <p>
+            <small>Created by <a href="https://github.com/MaksymKuzmych">Maksym Kuzmych</a></small>
+          </p>
+        </section>
+        <section>
+          <h3>Why you should use Docker:</h3>
+          <ul>
+            <li class="fragment">Isolation</li>
+            <li class="fragment">Run on different devices</li>
+            <li class="fragment">All dependencies inside</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Docker components:</h3>
+          <ul>
+            <li class="fragment">Container</li>
+            <li class="fragment">Image</li>
+            <li class="fragment">Repository</li>
+            <li class="fragment">Registry</li>
+          </ul>
+        </section>
+        <section>
+          <img
+            src="https://cdn.shortpixel.ai/spai/q_glossy+w_952+h_714+to_auto+ret_img/https://linuxiac.com/wp-content/uploads/2022/08/docker-desktop-fedora.jpg"
+            alt="Docker logo"
+            style="height: 400px; margin: 0 auto 4rem auto; background: transparent"
+            class="demo-logo"
+          />
+        </section>
+        <section>
+          <section>
+            <h3>Docker commands:</h3>
+          </section>
+          <section>
+            <pre data-id="code-animation"><code class="hljs javascript" data-trim>
+              docker ps
+            </code></pre>
+            <pre data-id="code-animation"><code class="hljs javascript" data-trim>
+              docker ps -a
+            </code></pre>
+            <img
+              src="./examples/assets/docker-ps.png"
+              alt="Docker logo"
+              style="height: 60px; margin: 0 auto 4rem auto; background: transparent"
+              class="demo-logo"
+            />
+          </section>
+          <section>
+            <pre data-id="code-animation"><code class="hljs javascript" data-trim>
+              docker images
+            </code></pre>
+            <img
+              src="./examples/assets/docker-images.png"
+              alt="Docker logo"
+              style="height: 200px; margin: 0 auto 4rem auto; background: transparent"
+              class="demo-logo"
+            />
+          </section>
+          <section>
+            <pre data-id="code-animation"><code class="hljs javascript" data-trim>
+              docker run hello-world
+            </code></pre>
+            <pre data-id="code-animation"><code class="hljs javascript" data-trim>
+              docker run -it busybox
+            </code></pre>
+          </section>
+          <section>
+            <h3>Useful flags:</h3>
+            <ul>
+              <li class="fragment">-d</li>
+              <li class="fragment">-it</li>
+              <li class="fragment">-p 8080:80</li>
+              <li class="fragment">-v</li>
+            </ul>
+          </section>
+          <section>
+            <pre data-id="code-animation"><code class="hljs javascript" data-trim>
+              docker run -v ${PWD}:/usr/share/nginx/html
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <img
+              src="https://flaviocopes.com/images/docker-desktop-manage-container/Screen_Shot_2020-07-05_at_12.14.51.png"
+              alt="Docker logo"
+              style="height: 700px; margin: 0 auto 4rem auto; background: transparent"
+              class="demo-logo"
+            />
+          </section>
+          <section>
+            <img
+              src="https://miro.medium.com/max/1400/1*c9QKMEDb0zudKOBSmWSymA.png"
+              alt="Docker logo"
+              style="height: 400px; margin: 0 auto 4rem auto; background: transparent"
+              class="demo-logo"
+            />
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Images</h3>
+          </section>
+          <section>
+            <img
+              src="./examples/assets/dockerfile.png"
+              alt="Dockerfile"
+              style="height: 400px; margin: 0 auto 4rem auto; background: transparent"
+              class="demo-logo"
+            />
+          </section>
+          <section>
+            <pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+              FROM node:alpine
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+              WORKDIR /app
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+              COPY . .
+
+              RUN npm install
+
+              CMD ["node", "index.mjs"]
+            </code></pre>
+          </section>
+          <section>
+            <p>docker build -t my-app .</p>
+          </section>
+          <section>
+            <pre data-id="code-animation"><code class="hljs javascript" data-trim>
+              docker run -p 5000:5000 -t my-app
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Docker compose</h3>
+          </section>
+          <section>
+            <h3>Docker compose benefits:</h3>
+            <ul>
+              <li class="fragment">Declarative approach</li>
+              <li class="fragment">Single Command Usage</li>
+              <li class="fragment">Auto creating images</li>
+              <li class="fragment">Auto creating network</li>
+              <li class="fragment">Interaction using service names</li>
+            </ul>
+          </section>
+          <section>
+            <pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+              version: '3'
+
+              services:
+                app:
+                  build: ./app
+                mongo:
+                  image: mongo
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <h3>Thanks for your attention</h3>
+          <img
+            src="https://1000logos.net/wp-content/uploads/2021/11/Docker-Logo-2013.png"
+            alt="Docker logo"
+            style="height: 180px; margin: 0 auto 4rem auto; background: transparent"
+            class="demo-logo"
+          />
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
 </html>
